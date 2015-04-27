@@ -10,6 +10,9 @@ describe Simulator do
   context "scenarios" do
     shared_examples "correct_state" do
       it { should eql resulting_state }
+      it "should have the verdict" do
+        expect(simulator.verdict).to eql verdict
+      end
     end
     before do
       simulator.next
@@ -30,8 +33,9 @@ describe Simulator do
          [:none, :soft, :hard]
         ]
       end
-
+      let(:verdict) { :push }
       include_examples "correct_state"
+      
     end
 
     context "#2" do
@@ -49,6 +53,7 @@ describe Simulator do
          [:soft, :none, :hard]
         ]
       end
+      let(:verdict) { :soft }
 
       include_examples "correct_state"
     end
@@ -70,6 +75,7 @@ describe Simulator do
          [:none, :none, :hard, :none],
         ]
       end
+      let(:verdict) { :hard }
 
       include_examples "correct_state"
     end
@@ -91,6 +97,7 @@ describe Simulator do
          [:none, :soft, :hard, :none],
         ]
       end
+      let(:verdict) { :hard }
 
       include_examples "correct_state"
     end
@@ -112,6 +119,7 @@ describe Simulator do
          [:none, :soft, :soft, :none],
         ]
       end
+      let(:verdict) { :push }
 
       include_examples "correct_state"
     end
