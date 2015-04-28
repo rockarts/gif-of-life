@@ -8,7 +8,7 @@ The app must run on:
 
 ## Task
  
-You are going to create a Gif pronounciation simulator. To do so, please implement the following methods
+You are going to create a Gif pronunciation simulator. To do so, please implement the following methods
 
 ### Simulator#initialize(seating_arrangement)
 
@@ -20,13 +20,13 @@ You are going to create a Gif pronounciation simulator. To do so, please impleme
 
 - If the majority of opinionated people think it is a hard g it returns `:hard`
 
-- If the majority of opinionated people think it is a soft g it eturns `:soft`
+- If the majority of opinionated people think it is a soft g it returns `:soft`
 
 - If the opinions are equal then return :push
 
 ### Simulator#state
 
-- Returns an array of arrays that represent the people in the current seating arrangment
+- Returns an array of arrays that represents the people in the current seating arrangement
 
 - Each element in the inner array is one of: `:hard`, `:soft`, or `:none`
 
@@ -47,6 +47,6 @@ You are going to create a Gif pronounciation simulator. To do so, please impleme
 #### Assumptions 
 - There will be an NxM seating arrangement
 - A neighbour is an adjacent person in the seating arrangement (including diagonals)
-- There are hard edges in the seating arrangement. (No wraping around)
+- There are hard edges in the seating arrangement. (No wrapping around)
 - Each person can either think Gif is pronounced with a hard G, a soft G, or they can not have an opinion
 - All state transitions happen simultaneously
