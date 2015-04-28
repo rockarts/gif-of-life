@@ -6,6 +6,8 @@ The app must run on:
 
 - Ruby >= 2.1.4
 
+- You will need to install `bundler` and do a `bundle install` in the directory to get the required gems installed
+
 ## Task
  
 You are going to create a Gif pronunciation simulator. To do so, please implement the following methods
@@ -50,3 +52,9 @@ You are going to create a Gif pronunciation simulator. To do so, please implemen
 - There are hard edges in the seating arrangement. (No wrapping around)
 - Each person can either think Gif is pronounced with a hard G, a soft G, or they can not have an opinion
 - All state transitions happen simultaneously
+
+## Tests
+
+- There is a spec (`spec/simulator_spec.rb`) that outlines some basic scenarios to help you get started. Feel free to add more tests as you see fit. 
+
+- This can be run via `bundle exec rspec spec/simulator_spec.rb`
