@@ -5,8 +5,7 @@
 The app must run on:
 
 - Ruby >= 2.1.4
-- - Feel free to upgrade the ruby version located in `Gemfile` if you want. 
-
+ - Feel free to upgrade the ruby version located in `Gemfile` if you want. 
 - You will need to install `bundler` and do a `bundle install` in the directory to get the required gems installed
 
 ## Task
