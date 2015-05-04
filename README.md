@@ -5,12 +5,13 @@
 The app must run on:
 
 - Ruby >= 2.1.4
+- - Feel free to upgrade the ruby version located in `Gemfile` if you want. 
 
 - You will need to install `bundler` and do a `bundle install` in the directory to get the required gems installed
 
 ## Task
  
-You are going to create a Gif pronunciation simulator. To do so, please implement the following methods
+You are going to create a Gif pronunciation simulator. To do so, please implement the following methods:
 
 ### Simulator#initialize(seating_arrangement)
 
@@ -55,6 +56,6 @@ You are going to create a Gif pronunciation simulator. To do so, please implemen
 
 ## Tests
 
-- There is a spec (`spec/simulator_spec.rb`) that outlines some basic scenarios to help you get started. Feel free to add more tests as you see fit. 
+- There is a spec (`spec/simulator_spec.rb`) that outlines some basic scenarios to help you get started. We'd love it if you added some more tests. 
 
 - This can be run via `bundle exec rspec spec/simulator_spec.rb`
