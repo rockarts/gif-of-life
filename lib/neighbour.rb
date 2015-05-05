@@ -1,0 +1,55 @@
+class Neighbour
+  def initialize(seating_arrangement)
+    @seating_arrangement = seating_arrangement
+  end
+  
+  def find(x, y)
+    neighbours = []
+    
+    neighbours << north_west_neighbour(x, y)
+    neighbours << north_neighbour(x, y)
+    neighbours << north_east_neighbour(x, y)
+    neighbours << west_neighbour(x, y)
+    neighbours << east_neighbour(x, y)
+    neighbours << south_east_neighbour(x, y)
+    neighbours << south_neighbour(x, y)
+    neighbours << south_west_neighbour(x, y)
+    
+    neighbours.compact
+  end
+  
+  def north_west_neighbour(x, y)
+    @seating_arrangement[y-1][x-1]
+  end
+  
+  def north_neighbour(x, y)
+    if(x > 0)
+      @seating_arrangement[y][x-1]
+    end
+  end
+  
+  def north_east_neighbour(x, y)
+    @seating_arrangement[y-1][x+1]
+  end
+  
+  def west_neighbour(x, y)
+    @seating_arrangement[y][x-1]
+  end
+  
+  def east_neighbour(x, y)
+    @seating_arrangement[y][x+1]
+  end
+  
+  def south_east_neighbour(x, y)
+    @seating_arrangement[y+1][x-1]
+  end
+  
+  def south_neighbour(x, y)
+    @seating_arrangement[y][x+1]
+  end
+  
+  def south_west_neighbour(x, y)
+    @seating_arrangement[y+1][x+1]
+  end
+  
+end

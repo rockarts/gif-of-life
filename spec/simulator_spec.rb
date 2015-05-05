@@ -19,6 +19,9 @@ describe Simulator do
     end
     subject { simulator.state }
     context "#1" do
+      #If a person with an opinion has fewer than 2 opinionated neighbours
+      #then they stop having an opinion since there is not enough people 
+      #to argue with.
       let(:initial_state) do
         [
          [:soft, :hard, :none],
@@ -39,6 +42,9 @@ describe Simulator do
     end
 
     context "#2" do
+      #If a person with an opinion has more than 3 opinionated neighbours
+      #then they stop having an opinion since their opinion 
+      #is drowned out by their neighbours.
       let(:initial_state) do
         [
          [:soft, :hard, :none],
@@ -59,6 +65,9 @@ describe Simulator do
     end
 
     context "#3" do
+      #If a person without an opinion that have exactly 3 opinionated 
+      #neighbours and at least 2 of them think "Gif" is pronounced with a hard G
+      #then they form an opinion that it is pronounced with a hard G
       let(:initial_state) do
         [
          [:soft, :hard, :none, :soft],
