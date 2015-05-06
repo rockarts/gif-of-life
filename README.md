@@ -38,9 +38,9 @@ You are going to create a Gif pronunciation simulator. To do so, please implemen
 
 #### Rules
 
-- If a person with an opinion has fewer than 2 opinionated neighbours then they stops having an opinion since there is not enough people to argue with. 
+- If a person with an opinion has fewer than 2 opinionated neighbours then they stop having an opinion since there is not enough people to argue with. 
 
-- If a person with an opinion has more than 3 opinionated neighbours then they stops having an opinion since their opinion is drowned out by their neighbours. 
+- If a person with an opinion has more than 3 opinionated neighbours then they stop having an opinion since their opinion is drowned out by their neighbours. 
 
 - If a person without an opinion that have exactly 3 opinionated neighbours and at least 2 of them think "Gif" is pronounced with a hard G then they form an opinion that it is pronounced with a hard G
 
