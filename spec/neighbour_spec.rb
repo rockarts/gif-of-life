@@ -51,10 +51,60 @@ describe Neighbour do
         expect(south_east[7]).to eq(:hard)
       end
       
-      it "should not find a North neighbour when in the top row" do
+      it "should not find a Northern neighbour when in the top row" do
         north = neighbour.north_neighbour(0,0)
         expect(north).to eq(nil)
       end
+      
+      it "should not find a Southern neighbour when in the bottom row" do
+        south = neighbour.south_neighbour(2,0)
+        expect(south).to eq(nil)
+      end
+      
+      it "should not find a Western neighbour when in the first column" do
+        west = neighbour.west_neighbour(0, 0)
+        expect(west).to eq(nil)
+      end
+      
+      it "should not find a Eastern neighbour when in the last column" do
+        east = neighbour.east_neighbour(2, 2)
+        expect(east).to eq(nil)
+      end
+      
+      it "should not find a South West neighbour when in the first column" do
+        south_west = neighbour.south_west_neighbour(0, 0)
+        expect(south_west).to eq(nil)
+      end
+      
+      it "should not find a North East neighbour when in the first column" do
+        north_east = neighbour.north_east_neighbour(0, 0)
+        expect(north_east).to eq(nil)
+      end
+      
+      it "should have three neighbours in the north west corner" do
+        neighbours = neighbour.find(0,0)
+        expect(neighbours.length).to eq(3)
+        expect(neighbours).to eq([:hard, :hard, :none])
+      end
+      
+      it "should have three neighbours in the north east corner" do
+        neighbours = neighbour.find(0,2)
+        expect(neighbours.length).to eq(3)
+        expect(neighbours).to eq([:hard, :none, :soft])
+      end
+      
+      it "should have three neighbours in the south west corner" do
+        neighbours = neighbour.find(2,0)
+        expect(neighbours.length).to eq(3)
+        expect(neighbours).to eq([:hard, :none, :soft])
+      end
+      
+      it "should have three neighbours in the south east corner" do
+        neighbours = neighbour.find(2,2)
+        expect(neighbours.length).to eq(3)
+        expect(neighbours).to eq([:none, :soft, :soft])
+      end
+      
     end
   end
 end
