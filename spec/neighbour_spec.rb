@@ -87,24 +87,6 @@ describe Neighbour do
         expect(neighbours).to eq([:hard, :hard, :none])
       end
       
-      it "should have three neighbours in the north east corner" do
-        neighbours = neighbour.find(0,2)
-        expect(neighbours.length).to eq(3)
-        expect(neighbours).to eq([:hard, :none, :soft])
-      end
-      
-      it "should have three neighbours in the south west corner" do
-        neighbours = neighbour.find(2,0)
-        expect(neighbours.length).to eq(3)
-        expect(neighbours).to eq([:hard, :none, :soft])
-      end
-      
-      it "should have three neighbours in the south east corner" do
-        neighbours = neighbour.find(2,2)
-        expect(neighbours.length).to eq(3)
-        expect(neighbours).to eq([:none, :soft, :soft])
-      end
-      
     end
   end
 end

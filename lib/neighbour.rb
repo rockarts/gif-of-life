@@ -11,9 +11,9 @@ class Neighbour
     neighbours << north_east_neighbour(x, y)
     neighbours << west_neighbour(x, y)
     neighbours << east_neighbour(x, y)
-    neighbours << south_west_neighbour(x, y)
-    neighbours << south_neighbour(x, y)
     neighbours << south_east_neighbour(x, y)
+    neighbours << south_neighbour(x, y)
+    neighbours << south_west_neighbour(x, y)
     
     neighbours.compact
   end
@@ -50,7 +50,7 @@ class Neighbour
   
   def south_east_neighbour(x, y)
     if(x < @seating_arrangement.length - 1 && y < @seating_arrangement[0].length - 1)
-      @seating_arrangement[x+1][y+1]
+      @seating_arrangement[y+1][x+1]
     end
   end
   
@@ -62,7 +62,8 @@ class Neighbour
   
   def south_west_neighbour(x, y)
     if(x < @seating_arrangement.length - 1 && y > 0)
-      @seating_arrangement[x+1][y-1]
+      puts neighbour[2][1].inspect
+      @seating_arrangement[y+1][x-1]
     end
   end
   

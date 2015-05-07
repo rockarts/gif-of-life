@@ -1,15 +1,16 @@
 class Simulator
 
   def initialize(seating_arrangement)
-    raise NotImplementedError
+    @seating_arrangement = seating_arrangement
   end
 
   def verdict
-    raise NotImplementedError
+    verdict = Verdict.new(@seating_arrangement)
+    verdict.tabulate
   end
 
   def state
-    raise NotImplementedError
+    @seating_arrangement
   end
 
   def next
