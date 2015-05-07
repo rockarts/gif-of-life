@@ -19,9 +19,6 @@ describe Simulator do
     end
     subject { simulator.state }
     context "#1" do
-      #If a person with an opinion has fewer than 2 opinionated neighbours
-      #then they stop having an opinion since there is not enough people 
-      #to argue with.
       let(:initial_state) do
         [
          [:soft, :hard, :none],

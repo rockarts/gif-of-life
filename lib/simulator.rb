@@ -14,7 +14,9 @@ class Simulator
   end
 
   def next
-    raise NotImplementedError
+    @seating_arrangement.each do |x|
+      
+    end
   end
 
 end
