@@ -15,15 +15,19 @@ class Simulator
 
   def next
     neighbour = Neighbour.new(@seating_arrangement)
-    new_seating_arrangement = []
+    new_seating_arrangement = Array.new(@seating_arrangement[0].length) {
+    Array.new(@seating_arrangement.length, :none)} 
+    
     @seating_arrangement.each_with_index do |x, xindex|
       x.each_with_index do |y, yindex|
         neighbours = neighbour.find(xindex, yindex)
-        rules = Rules.new(x, neighbours)
-        new_seating_arrangement << rules.check
+        rules = Rules.new(y, neighbours)
+        new_seating_arrangement[xindex][yindex] = rules.check
       end
+      
     end
     @seating_arrangement = new_seating_arrangement
+    
   end
 
 end
