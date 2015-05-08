@@ -14,11 +14,16 @@ class Simulator
   end
 
   def next
+    neighbour = Neighbour.new(@seating_arrangement)
+    new_seating_arrangement = []
     @seating_arrangement.each_with_index do |x, xindex|
       x.each_with_index do |y, yindex|
-        puts "#{xindex}, #{yindex}"
+        neighbours = neighbour.find(xindex, yindex)
+        rules = Rules.new(x, neighbours)
+        new_seating_arrangement << rules.check
       end
     end
+    @seating_arrangement = new_seating_arrangement
   end
 
 end

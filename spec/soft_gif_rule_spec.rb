@@ -8,11 +8,11 @@ describe SoftGifRule do
   describe "#apply" do
     subject { soft_gif_rule }
     
-    context "when a person's neighbours think Gif is pronounced with a soft G" do
+    context "when a person without a opinion neighbours think Gif is pronounced with a soft G" do
       let(:soft_gif_rule) { 
-        SoftGifRule.new([:soft, :soft, :hard]) }
+        SoftGifRule.new(:none, [:soft, :soft, :hard]) }
         
-        it "doesn't have an opinion anymore" do
+        it "changes it's opinion to soft" do
           new_opinion = soft_gif_rule.apply()
           expect(new_opinion).to eq(:soft)
         end
@@ -20,11 +20,11 @@ describe SoftGifRule do
 
     context "when a person has less than three opinionated neighbours" do
       let(:soft_gif_rule) { 
-        SoftGifRule.new([:soft, :hard, :none, :none]) }
+        SoftGifRule.new(:none, [:soft, :hard, :none, :none]) }
         
-        it "doesn't have an opinion anymore" do
+        it "continues to not have an opinion" do
           new_opinion = soft_gif_rule.apply()
-          expect(new_opinion).to eq(nil)
+          expect(new_opinion).to eq(:none)
         end
     end
 

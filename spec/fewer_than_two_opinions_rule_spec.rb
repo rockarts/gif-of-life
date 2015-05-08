@@ -10,7 +10,7 @@ describe FewerThanTwoOpinionatedNeighbours do
     
     context "when a person's neighbours aren't opinionated" do
       let(:fewer_than_two_opinionated_neighbours_rule) { 
-        FewerThanTwoOpinionatedNeighbours.new([:soft, :none, :none]) }
+        FewerThanTwoOpinionatedNeighbours.new(:soft, [:soft, :none, :none]) }
         
         it "doesn't have an opinion anymore" do
           new_opinion = fewer_than_two_opinionated_neighbours_rule.apply()
@@ -20,11 +20,11 @@ describe FewerThanTwoOpinionatedNeighbours do
     
     context "when a person's neighbours are opinionated" do
       let(:fewer_than_two_opinionated_neighbours_rule) { 
-        FewerThanTwoOpinionatedNeighbours.new([:soft, :soft, :hard]) }
+        FewerThanTwoOpinionatedNeighbours.new(:soft, [:soft, :soft, :hard]) }
         
         it "doesn't apply" do
           new_opinion = fewer_than_two_opinionated_neighbours_rule.apply()
-          expect(new_opinion).to eq(nil)
+          expect(new_opinion).to eq(:soft)
         end
     end
 

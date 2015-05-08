@@ -1,19 +1,21 @@
 class Rules
   
-  def initialize(neighbours)
+  def initialize(opinion, neighbours)
+    @opinion = opinion
     @neighbours = neighbours
-    @rules = [FewerThanTwoOpinionatedNeighbours.new(neighbours), 
-    DrownedOutOpinionRule.new(neighbours), 
-    HardGifRule.new(neighbours),
-    SoftGifRule.new(neighbours)]
+    @rules = [FewerThanTwoOpinionatedNeighbours.new(opinion, neighbours), 
+    DrownedOutOpinionRule.new(opinion, neighbours), 
+    HardGifRule.new(opinion, neighbours),
+    SoftGifRule.new(opinion, neighbours)]
   end
   
   def check
     @rules.each do |x| 
-      applied_rule = x.apply 
-      if(applied_rule != nil)
-        return applied_rule
+      if(x.apply != @opinion)
+        @opinion = x.apply
+        break
       end
     end
+    @opinion
   end
 end
