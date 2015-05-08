@@ -14,8 +14,10 @@ class Simulator
   end
 
   def next
-    @seating_arrangement.each do |x|
-      
+    @seating_arrangement.each_with_index do |x, xindex|
+      x.each_with_index do |y, yindex|
+        puts "#{xindex}, #{yindex}"
+      end
     end
   end
 
