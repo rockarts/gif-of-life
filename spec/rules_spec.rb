@@ -15,10 +15,10 @@ describe Rules do
     end
     
     context "neigbours are very opinionated" do
-      let(:neighbours) { [:soft, :hard, :hard, :soft] }
-      let(:rules) { Rules.new(:soft, neighbours) }
+      let(:neighbours) { [:soft, :hard, :none, :soft, :hard] }
+      let(:rules) { Rules.new(:hard, neighbours) }
               
-      it "should only apply the drownd out opinion rule" do
+      it "should only apply the drowned out opinion rule" do
         result = rules.check()
         expect(result).to eq(:none)
       end
