@@ -19,6 +19,7 @@ class GameWindow < Gosu::Window
         @song = Gosu::Song.new(self, 'music/SanityNotIncluded.mp3')
         @song.play(true)
         @state = :start
+        @last_update = 0
         load_images
         @seating_arrangement = [
                  [:soft, :hard, :hard, :soft],
@@ -30,7 +31,10 @@ class GameWindow < Gosu::Window
     end
 
 	def update
-        @seating_arrangement = @simulator.next
+        if((Gosu::milliseconds() - @last_update) >= 2000)
+            @seating_arrangement = @simulator.next
+            @last_update = Gosu::milliseconds()
+        end
 	end
 
 	def draw
@@ -62,11 +66,6 @@ class GameWindow < Gosu::Window
                 end
             end
         end
-
-        #player_total = Gosu::Font.new(self, Gosu::default_font_name, 100)
-        #player_total.draw(@player.total, 50, 380, 1.0, 1.0, 1.0)
-        
-        
 	end
 
     def button_down(id)
@@ -75,11 +74,12 @@ class GameWindow < Gosu::Window
         end
 
         if button_down?(Gosu::MsLeft)
-            if button_pressed(START_BUTTON_X, START_BUTTON_Y) && @state == :start then
+            if button_pressed(START_BUTTON_X, START_BUTTON_Y) && @state == :start
                 puts "start pressed"
                 @state = :in_progress
             end
         end
+
     end
 
     def button_pressed(x, y)
