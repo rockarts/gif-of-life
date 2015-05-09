@@ -82,6 +82,7 @@ describe Simulator do
         ]
       end
       let(:verdict) { :hard }
+#Index 0, 2 none applied rule is hard neighbours [:hard, :soft, :none, :soft, :hard] north_west_neighbour
 
       include_examples "correct_state"
     end

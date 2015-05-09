@@ -27,6 +27,16 @@ describe HardGifRule do
           expect(new_opinion).to eq(:none)
         end
     end
+    
+    context "when a person has four opinionated neighbours of equal amounts" do
+      let(:hard_gif_rule) { 
+        HardGifRule.new(:none, [:soft, :hard, :soft, :hard]) }
+        
+        it "shouldn't change it's opinion" do
+          new_opinion = hard_gif_rule.apply()
+          expect(new_opinion).to eq(:none)
+        end
+    end
 
   end
 end

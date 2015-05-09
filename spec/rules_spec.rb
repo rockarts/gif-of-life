@@ -25,7 +25,7 @@ describe Rules do
     end
     
     context "neigbours think gif is pronounced with a hard G" do
-      let(:neighbours) { [:hard, :hard, :none] }
+      let(:neighbours) { [:hard, :hard, :soft] }
       let(:rules) { Rules.new(:none, neighbours) }
               
       it "should only apply the hard gif rule" do
@@ -35,7 +35,7 @@ describe Rules do
     end
     
     context "neigbours think gif is pronounced with a soft G" do
-      let(:neighbours) { [:soft, :soft, :none]}
+      let(:neighbours) { [:soft, :soft, :hard]}
       let(:rules) { Rules.new(:none, neighbours) }
               
       it "should only apply the hard gif rule" do

@@ -6,25 +6,34 @@ class HardGifRule
   end
   
   def apply
-    unless has_opinion?
-      opinionated_neighbours = @neighbours.inject(0) do |result, x| 
-        if(x == :hard)
-         result += 1
+    unless has_opinion?(@opinion) 
+      opinion_count = @neighbours.inject(0) do |result, x| 
+        if(has_opinion?(x))
+          result += 1
         else
-         result
+          result
         end
       end
-      
-      if(opinionated_neighbours == 2) 
-        return :hard
+      if(opinion_count == 3)
+        opinionated_neighbours = @neighbours.inject(0) do |result, x| 
+          if(x == :hard)
+           result += 1
+          else
+           result
+          end
+        end
+        
+        if(opinionated_neighbours == 2) 
+          return :hard
+        end
       end
     end
     @opinion
   end
   
   private
-  def has_opinion?
-    @opinion == :soft || @opinion == :hard
+  def has_opinion?(opinion)
+    opinion == :soft || opinion == :hard
   end
   
 end
