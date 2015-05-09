@@ -87,6 +87,11 @@ describe Neighbour do
         expect(neighbours).to eq([:hard, :hard, :none])
       end
       
+      it 'should find the correct neighbours' do
+        neighbours = neighbour.find(1,0)
+        expect(neighbours.length).to eq(5)
+        expect(neighbours).to eq([:soft, :hard, :none, :none, :soft])
+      end
     end
   end
 end
