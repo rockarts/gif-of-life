@@ -42,5 +42,18 @@ describe Verdict do
         expect(result).to eq(:push)
       end
     end
+    
+    context "when none is the majority" do
+      let(:verdict) { Verdict.new( [
+         [:soft, :hard, :none],
+         [:none, :none, :soft],
+         [:soft, :none, :hard]
+        ]) }
+              
+      it "should choose soft" do
+        result = verdict.tabulate()
+        expect(result).to eq(:soft)
+      end
+    end
   end
 end

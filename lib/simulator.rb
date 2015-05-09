@@ -24,7 +24,7 @@ class Simulator
         neighbours = neighbour.find(xindex, yindex)
         rules = Rules.new(y, neighbours)
         rule_result = rules.check
-        puts "Index #{xindex}, #{yindex} #{@seating_arrangement[xindex][yindex]} applied rule is #{rule_result} neighbours #{neighbours} east neighbour #{neighbour.east_neighbour(xindex, yindex)} west neighbour #{neighbour.west_neighbour(xindex, yindex)}"
+        puts "Index #{xindex}, #{yindex} #{@seating_arrangement[xindex][yindex]} applied rule is #{rule_result} neighbours #{neighbours} north_east_neighbour #{neighbour.north_east_neighbour(xindex, yindex)}"
         new_seating_arrangement[xindex][yindex] = rule_result
         if(xindex == 1 && yindex == 0)
           puts "NEW arrangemnet #{new_seating_arrangement[xindex][yindex]}"

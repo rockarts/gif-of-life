@@ -26,13 +26,13 @@ class Neighbour
   
   def north_neighbour(x, y)
     if(x > 0)
-      @seating_arrangement[y][x-1]
+      @seating_arrangement[x-1][y]
     end
   end
   
   def north_east_neighbour(x, y)
     if(x > 0 && y < @seating_arrangement[0].length - 1)
-      @seating_arrangement[y+1][x-1]
+      @seating_arrangement[x-1][y+1]
     end
   end
   
