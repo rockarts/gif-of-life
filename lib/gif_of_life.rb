@@ -21,13 +21,33 @@ class GameWindow < Gosu::Window
         @state = :start
         @last_update = 0
         load_images
-        @seating_arrangement = [
-                 [:soft, :hard, :hard, :soft],
-                 [:none, :none, :none, :none],
-                 [:none, :none, :none, :none],
-                 [:hard, :soft, :hard, :soft],
-                ]
+        @seating_arrangement = randomize
         @simulator = Simulator.new(@seating_arrangement)
+    end
+
+    def randomize
+        hard = [
+         [:soft, :hard, :hard, :soft],
+         [:none, :none, :none, :none],
+         [:none, :none, :none, :none],
+         [:hard, :soft, :hard, :soft],
+        ]
+
+        push = [
+         [:none, :hard, :hard, :none],
+         [:none, :hard, :hard, :none],
+         [:none, :soft, :soft, :none],
+         [:none, :soft, :soft, :none],
+        ]
+
+        soft = [
+         [:soft, :hard, :hard, :soft],
+         [:none, :soft, :none, :none],
+         [:none, :none, :soft, :none],
+         [:hard, :soft, :hard, :soft],
+        ] 
+        opinions = [hard, soft, push]
+        opinions.sample
     end
 
 	def update
@@ -88,14 +108,12 @@ class GameWindow < Gosu::Window
         verdict = @simulator.verdict
         winner_text = Gosu::Font.new(self, "Arial", 18)
         if(verdict == :hard)
-            puts :hard
             hard_winner = Gosu::Image.new(self, "images/gif_winner.png", true)
             hard_winner.draw(65, 10, 0)
             winner_text.draw("Winner!", 85, 140, 0)
         end
 
         if(verdict == :soft)
-            puts :soft
             soft_winner = Gosu::Image.new(self, "images/jif_winner.png", true)
             soft_winner.draw(480, 10, 0)
             winner_text.draw("Winner!", 500, 140, 0)
