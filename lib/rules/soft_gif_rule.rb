@@ -1,13 +1,13 @@
 class SoftGifRule
   
   def initialize(opinion, neighbours)
-    @opinion = opinion
+    @opinion = Opinion.new(opinion, neighbours)
     @neighbours = neighbours
   end
   
   def apply
-    unless has_opinion?(@opinion) 
-      opinion_count = @neighbours.inject(0) { |result, x| has_opinion?(x) ? result += 1 : result }
+    unless @opinion.has_opinion
+      opinion_count = @opinion.opinionated_neighbours
 
       if(opinion_count == 3)
         opinionated_neighbours = @neighbours.inject(0) { |result, x| x == :soft ? result += 1 : result }
@@ -17,12 +17,7 @@ class SoftGifRule
         end
       end
     end
-    @opinion
-  end
-  
-  private
-  def has_opinion?(opinion)
-    opinion == :soft || opinion == :hard
+    @opinion.opinion
   end
   
 end
