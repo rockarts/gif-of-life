@@ -7,21 +7,10 @@ class SoftGifRule
   
   def apply
     unless has_opinion?(@opinion) 
-      opinion_count = @neighbours.inject(0) do |result, x| 
-        if(has_opinion?(x))
-          result += 1
-        else
-          result
-        end
-      end
+      opinion_count = @neighbours.inject(0) { |result, x| has_opinion?(x) ? result += 1 : result }
+
       if(opinion_count == 3)
-        opinionated_neighbours = @neighbours.inject(0) do |result, x| 
-          if(x == :soft)
-           result += 1
-          else
-           result
-          end
-        end
+        opinionated_neighbours = @neighbours.inject(0) { |result, x| x == :soft ? result += 1 : result }
         
         if(opinionated_neighbours == 2) 
           return :soft

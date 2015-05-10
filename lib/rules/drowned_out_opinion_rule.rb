@@ -7,13 +7,7 @@ class DrownedOutOpinionRule
   
   def apply
     if(has_opinion?(@opinion))
-      opinionated_neighbours = @neighbours.inject(0) do |result, x| 
-        if has_opinion?(x)
-          result += 1
-        else
-          result
-        end
-      end
+      opinionated_neighbours = @neighbours.inject(0) { |result, x| has_opinion?(x) ? result += 1 : result }
       
       if(opinionated_neighbours > 3) 
         return :none
