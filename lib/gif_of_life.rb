@@ -142,8 +142,7 @@ class GameWindow < Gosu::Window
     end
 
     def button_pressed(x, y)
-        puts "#{mouse_x}, #{mouse_y}"
-        return (mouse_x > x && mouse_x < x + 190) && (mouse_y > y && mouse_y < y + 400)
+        return (mouse_x > 190 && mouse_x < 460) && (mouse_y > 400 && mouse_y < 425)
     end
 
 	def load_images
