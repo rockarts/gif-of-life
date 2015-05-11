@@ -10,7 +10,7 @@ class HardGifRule
       opinion_count = @opinion.opinionated_neighbours
 
       if(opinion_count == 3)
-        opinionated_neighbours = @neighbours.inject(0) { |result, x|  x == :hard ? result += 1 : result }
+        opinionated_neighbours = @opinion.find_opinions {|x| x==:hard}
         
         if(opinionated_neighbours == 2) 
           return :hard
@@ -19,5 +19,4 @@ class HardGifRule
     end
     @opinion.opinion
   end
-  
 end

@@ -16,4 +16,8 @@ class Opinion
 	def has_opinion?(opinion)
 		opinion == :soft || opinion == :hard
 	end
+	
+	def find_opinions(&block)
+    @neighbours.inject(0) { |result, x|  block.call(x) ? result += 1 : result }
+  end
 end
