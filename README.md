@@ -1,12 +1,14 @@
-# Clio Hiring Project
+# Gif of Life - A Game of Life Simulation
+
+![alt tag](https://github.com/rockarts/gif-of-life/blob/master/lib/images/logo.gif)
 
 ## Environment Requirements
 
-The app must run on:
+Built using Ruby 2.0.0 and Gosu. To run the app, go to the lib directory and run the command: 
+ruby gif_of_life.rb
 
-- Ruby >= 2.1.4
- - Feel free to upgrade the ruby version located in `Gemfile` if you want. 
-- You will need to install `bundler` and do a `bundle install` in the directory to get the required gems installed
+## Music
+- Music: Main song is Sanity Not Included by http://ozzed.net available on the album Nackskott http://ozzed.net/music/Nackskott.shtml
 
 ## Task
  
@@ -58,6 +60,3 @@ You are going to create a Gif pronunciation simulator. To do so, please implemen
 - There is a spec (`spec/simulator_spec.rb`) that outlines some basic scenarios to help you get started. We'd love it if you added some more tests. 
 
 - This can be run via `bundle exec rspec spec/simulator_spec.rb`
-
-## Music
-- Music: Main song is Sanity Not Included by http://ozzed.net available on the album Nackskott http://ozzed.net/music/Nackskott.shtml
