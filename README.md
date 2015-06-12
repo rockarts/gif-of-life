@@ -10,6 +10,13 @@ ruby gif_of_life.rb
 ## Music
 - Music: Main song is Sanity Not Included by http://ozzed.net available on the album Nackskott http://ozzed.net/music/Nackskott.shtml
 
+## Screenshots
+
+![alt tag](https://github.com/rockarts/gif-of-life/blob/master/hard_winner.png)
+
+![alt tag](https://github.com/rockarts/gif-of-life/blob/master/soft_winner.png)
+
+![alt tag](https://github.com/rockarts/gif-of-life/blob/master/push.png)
 
 ## Summary of Tasks Implemented for the Interview
  
