@@ -10,7 +10,8 @@ ruby gif_of_life.rb
 ## Music
 - Music: Main song is Sanity Not Included by http://ozzed.net available on the album Nackskott http://ozzed.net/music/Nackskott.shtml
 
-## Task
+
+## Summary of Tasks Implemented for the Interview
  
 You are going to create a Gif pronunciation simulator. To do so, please implement the following methods:
 
