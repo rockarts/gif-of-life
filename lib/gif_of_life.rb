@@ -26,28 +26,8 @@ class GameWindow < Gosu::Window
     end
 
     def randomize
-        hard = [
-         [:soft, :hard, :hard, :soft],
-         [:none, :none, :none, :none],
-         [:none, :none, :none, :none],
-         [:hard, :soft, :hard, :soft],
-        ]
-
-        push = [
-         [:none, :hard, :hard, :none],
-         [:none, :hard, :hard, :none],
-         [:none, :soft, :soft, :none],
-         [:none, :soft, :soft, :none],
-        ]
-
-        soft = [
-         [:soft, :hard, :hard, :soft],
-         [:none, :soft, :none, :none],
-         [:none, :none, :soft, :none],
-         [:hard, :soft, :hard, :soft],
-        ] 
-        opinions = [hard, soft, push]
-        opinions.sample
+        opinions = [:hard, :soft, :none]
+        Array.new(4, opinions.sample) {Array.new(4, opinions.sample)} 
     end
 
 	def update
